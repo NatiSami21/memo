@@ -32,7 +32,7 @@
   "icon": "assets/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/natinaelsamuel/memo"
+    "url": "https://github.com/NatiSami21/memo"
   },
   "main": "./dist/extension.js",
   "activationEvents": [

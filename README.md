@@ -99,7 +99,7 @@ npx @vscode/vsce package
 
 **Natinael Samuel**  
 *Senior Full Stack Software Engineer (BSc)*  
-GitHub: [@natinaelsamuel](https://github.com/natinaelsamuel)
+GitHub: [@NatiSami21](https://github.com/NatiSami21)
 
 ---
 
