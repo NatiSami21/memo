@@ -95,6 +95,14 @@ npx @vscode/vsce package
 
 ---
 
+## 👨‍💻 Author & Maintainer
+
+**Natinael Samuel**  
+*Senior Full Stack Software Engineer (BSc)*  
+GitHub: [@natinaelsamuel](https://github.com/natinaelsamuel)
+
+---
+
 ## 📄 License
 
-MIT © Natinael Samuel
+MIT © 2026 Natinael Samuel

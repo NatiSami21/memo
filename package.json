@@ -3,7 +3,11 @@
   "displayName": "Memo — Living Memory for AI-Assisted Development",
   "description": "Persistent memory, governance rules, and a visual dashboard that keeps your AI coding assistant aligned across context compactions, long sessions, and multi-agent workflows.",
   "version": "0.1.0",
-  "publisher": "fanaye-tech",
+  "publisher": "natinaelsamuel",
+  "author": {
+    "name": "Natinael Samuel",
+    "role": "Senior Full Stack Software Engineer (BSc)"
+  },
   "license": "MIT",
   "engines": {
     "vscode": "^1.85.0"
@@ -28,7 +32,7 @@
   "icon": "assets/icon.png",
   "repository": {
     "type": "git",
-    "url": "https://github.com/fanaye-tech/memo"
+    "url": "https://github.com/natinaelsamuel/memo"
   },
   "main": "./dist/extension.js",
   "activationEvents": [
@@ -185,6 +189,7 @@
     "@types/vscode": "^1.85.0",
     "@typescript-eslint/eslint-plugin": "^7.0.0",
     "@typescript-eslint/parser": "^7.0.0",
+    "@vscode/vsce": "^4.0.0",
     "esbuild": "^0.20.0",
     "eslint": "^8.56.0",
     "typescript": "^5.3.0"
