@@ -1,0 +1,196 @@
+{
+  "name": "memo-living-memory",
+  "displayName": "Memo — Living Memory for AI-Assisted Development",
+  "description": "Persistent memory, governance rules, and a visual dashboard that keeps your AI coding assistant aligned across context compactions, long sessions, and multi-agent workflows.",
+  "version": "0.1.0",
+  "publisher": "fanaye-tech",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.85.0"
+  },
+  "categories": [
+    "Other",
+    "Machine Learning",
+    "Programming Languages"
+  ],
+  "keywords": [
+    "ai",
+    "memory",
+    "context",
+    "governance",
+    "agent",
+    "cursor",
+    "copilot",
+    "antigravity",
+    "claude",
+    "pair-programming"
+  ],
+  "icon": "assets/icon.png",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fanaye-tech/memo"
+  },
+  "main": "./dist/extension.js",
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "contributes": {
+    "commands": [
+      {
+        "command": "memo.init",
+        "title": "Memo: Initialize Living Memory",
+        "icon": "$(add)"
+      },
+      {
+        "command": "memo.initDetailed",
+        "title": "Memo: Initialize Living Memory (Detailed Setup)"
+      },
+      {
+        "command": "memo.openDashboard",
+        "title": "Memo: Open Dashboard",
+        "icon": "$(dashboard)"
+      },
+      {
+        "command": "memo.syncRules",
+        "title": "Memo: Sync Agent Rules",
+        "icon": "$(sync)"
+      },
+      {
+        "command": "memo.copyDigest",
+        "title": "Memo: Copy Context Digest to Clipboard",
+        "icon": "$(clippy)"
+      },
+      {
+        "command": "memo.logDecision",
+        "title": "Memo: Log Architectural Decision (ADR)"
+      },
+      {
+        "command": "memo.refreshDashboard",
+        "title": "Memo: Refresh Dashboard",
+        "icon": "$(refresh)"
+      }
+    ],
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "memo-sidebar",
+          "title": "Memo",
+          "icon": "assets/memo-icon.svg"
+        }
+      ]
+    },
+    "views": {
+      "memo-sidebar": [
+        {
+          "type": "webview",
+          "id": "memo.dashboardView",
+          "name": "Living Memory Dashboard"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "Memo — Living Memory",
+      "properties": {
+        "memo.autoInit": {
+          "type": "boolean",
+          "default": false,
+          "description": "Automatically initialize memory/ directory when a new workspace is opened without one."
+        },
+        "memo.memoryProfile": {
+          "type": "string",
+          "enum": [
+            "minimal",
+            "standard",
+            "enterprise"
+          ],
+          "default": "standard",
+          "enumDescriptions": [
+            "Minimal: 3 files — architecture.md, progress.md, changelog.md. Best for solo/hobby projects.",
+            "Standard: 5 files — architecture.md, guidelines.md, progress.md, decisions.md, changelog.md. Best for team projects.",
+            "Enterprise: 7+ files — Adds feasibility.md, validation.md, and modules/ directory. Best for monorepos."
+          ],
+          "description": "Memory profile tier controlling how many files are scaffolded."
+        },
+        "memo.targetPlatforms": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "enum": [
+              "antigravity",
+              "cursor",
+              "copilot",
+              "claude",
+              "generic"
+            ]
+          },
+          "default": [
+            "antigravity",
+            "generic"
+          ],
+          "description": "Which AI platforms to generate governance rule files for."
+        },
+        "memo.autoSyncRules": {
+          "type": "boolean",
+          "default": true,
+          "description": "Automatically re-sync agent governance rules when memory files change."
+        },
+        "memo.changelogMaxEntries": {
+          "type": "number",
+          "default": 20,
+          "description": "Maximum number of commit entries to keep in changelog.md before archiving older entries."
+        },
+        "memo.gitTracked": {
+          "type": "boolean",
+          "default": true,
+          "description": "If false, adds memory/ to .gitignore to prevent tracking sensitive architectural details."
+        },
+        "memo.stalenessWarningDays": {
+          "type": "number",
+          "default": 3,
+          "description": "Show a staleness warning if memory files haven't been updated in this many days."
+        }
+      }
+    },
+    "menus": {
+      "commandPalette": [
+        {
+          "command": "memo.init",
+          "when": "workspaceFolderCount > 0"
+        },
+        {
+          "command": "memo.syncRules",
+          "when": "memo.isInitialized"
+        },
+        {
+          "command": "memo.copyDigest",
+          "when": "memo.isInitialized"
+        },
+        {
+          "command": "memo.logDecision",
+          "when": "memo.isInitialized"
+        }
+      ]
+    }
+  },
+  "scripts": {
+    "build": "node esbuild.js",
+    "watch": "node esbuild.js --watch",
+    "lint": "eslint src --ext ts",
+    "package": "vsce package",
+    "prepackage": "npm run build",
+    "test": "node test/smoke-test.js"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.0",
+    "@types/vscode": "^1.85.0",
+    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/parser": "^7.0.0",
+    "esbuild": "^0.20.0",
+    "eslint": "^8.56.0",
+    "typescript": "^5.3.0"
+  },
+  "dependencies": {
+    "gray-matter": "^4.0.3",
+    "yaml": "^2.3.4"
+  }
+}
