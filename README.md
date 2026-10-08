@@ -77,6 +77,21 @@ The injected governance directives enforce 5 non-negotiable software engineering
 
 ---
 
+## 📦 Installation
+
+### From Open VSX Registry (Google Antigravity, Cursor, VSCodium)
+- Search for `memo-living-memory` or `Memo` in the Extensions view (`Ctrl+Shift+X` / `Cmd+Shift+X`).
+- Or install directly via terminal:
+  ```bash
+  code --install-extension natinaelsamuel.memo-living-memory
+  ```
+- 🔗 **Open VSX Page**: [open-vsx.org/extension/natinaelsamuel/memo-living-memory](https://open-vsx.org/extension/natinaelsamuel/memo-living-memory)
+
+### From VS Code Marketplace
+- 🔗 **VS Code Marketplace**: [marketplace.visualstudio.com/items?itemName=natinaelsamuel.memo-living-memory](https://marketplace.visualstudio.com/items?itemName=natinaelsamuel.memo-living-memory)
+
+---
+
 ## 💻 Development & Building
 
 ```bash
